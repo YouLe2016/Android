@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Normal Dialog"
+            android:onClick="showNormalDialog"
+            android:textAllCaps="false"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Easy Dialog"
+            android:onClick="showEasyDialog"
+            android:textAllCaps="false"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+</LinearLayout>
