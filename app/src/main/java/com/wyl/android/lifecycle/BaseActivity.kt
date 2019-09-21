@@ -28,6 +28,7 @@
 package com.wyl.android.lifecycle
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -37,8 +38,15 @@ import androidx.appcompat.app.AppCompatActivity
  * 内容描述：
  * 修改说明：
  */
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
+    protected val tag = this.javaClass.name
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onDestroy() {
+        Log.d(tag, "onDestroy")
+        super.onDestroy()
     }
 }
