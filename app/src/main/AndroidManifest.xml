@@ -12,8 +12,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".screen.OrientationActivity"
-            android:label="Screen Orientation">
+            android:name=".viewmodel.SaveStateViewModelActivity"
+            android:label="@string/save_state_vieModel" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,16 +21,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".viewmodel.AndroidViewModelActivity"
+            android:label="@string/android_viewModel">
+        </activity>
+        <activity
+            android:name=".screen.OrientationActivity"
+            android:label="Screen Orientation" />
+        <activity
             android:name=".databinding.DataBindingActivity"
             android:label="DataBinding">
-
         </activity>
         <activity
             android:name=".livedata.LiveDataActivity"
-            android:label="LiveData"></activity>
+            android:label="LiveData" />
         <activity
             android:name=".viewmodel.ViewModelActivity"
-            android:label="ViewModel" />
+            android:label="ViewModel"></activity>
         <activity android:name=".MainActivity" />
     </application>
 

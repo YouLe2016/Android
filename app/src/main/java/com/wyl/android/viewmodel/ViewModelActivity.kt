@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.wyl.android.R
+import com.wyl.android.lifecycle.BaseActivity
 import kotlinx.android.synthetic.main.view_model_activity.*
 
-class ViewModelActivity : AppCompatActivity() {
+class ViewModelActivity : BaseActivity() {
     private val viewModel by lazy {
         ViewModelProviders.of(this).get(MyViewModel::class.java)
     }
@@ -18,8 +19,9 @@ class ViewModelActivity : AppCompatActivity() {
 
         textView.text = viewModel.number.toString()
 
+//        add.setOnClickListener { textView.text = (++viewModel.number).toString() }
+//        reduce.setOnClickListener { textView.text = (--viewModel.number).toString() }
         add.setOnClickListener { textView.text = (++viewModel.number).toString() }
-
         reduce.setOnClickListener { textView.text = (--viewModel.number).toString() }
 
     }
