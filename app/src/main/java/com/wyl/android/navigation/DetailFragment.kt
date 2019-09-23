@@ -30,6 +30,15 @@ class DetailFragment : Fragment() {
         val clickListener =
             Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_homeFragment)
         button.setOnClickListener(clickListener)
+
+//        textView.text = if (arguments == null) {
+//            "123"
+//        } else {
+//            arguments!!["name"]?.toString()
+//        }
+
+        textView.text = arguments?.let { it["name"] as String } ?: "123"
+
     }
 
 

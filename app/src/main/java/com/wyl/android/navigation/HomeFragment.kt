@@ -26,9 +26,16 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         button.setOnClickListener {
+            val name = "I am from HomeFragment."
+
             // val navController = NavHostFragment.findNavController(this)
             val navController = Navigation.findNavController(it)
-            navController.navigate(R.id.action_homeFragment_to_detailFragment)
+            navController.navigate(
+                R.id.action_homeFragment_to_detailFragment,
+                Bundle().apply {
+                    putString("name", name)
+                }
+            )
         }
     }
 
