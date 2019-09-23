@@ -38,15 +38,50 @@ import androidx.appcompat.app.AppCompatActivity
  * 内容描述：
  * 修改说明：
  */
+
+const val Lifecycle = "lifecycle"
+
 open class BaseActivity : AppCompatActivity() {
     protected val tag = this.javaClass.name
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d(Lifecycle, "onCreate")
         super.onCreate(savedInstanceState)
     }
 
+    override fun onRestart() {
+        Log.d(Lifecycle, "onRestart")
+        super.onRestart()
+    }
+
+    override fun onStart() {
+        Log.d(Lifecycle, "onStart")
+        super.onStart()
+    }
+
+    override fun onResume() {
+        Log.d(Lifecycle, "onResume")
+        super.onResume()
+    }
+
+    override fun onPause() {
+        Log.d(Lifecycle, "onPause")
+        super.onPause()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Log.d(Lifecycle, "onSaveInstanceState")
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onStop() {
+        Log.d(Lifecycle, "onStop")
+        super.onStop()
+    }
+
     override fun onDestroy() {
-        Log.d(tag, "onDestroy")
+        Log.d(Lifecycle, "onDestroy")
         super.onDestroy()
     }
+
 }
