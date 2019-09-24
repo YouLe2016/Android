@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.wyl.recyclerview", appContext.packageName)
+        assertEquals("com.com.wyl.recyclerview", appContext.packageName)
     }
 }

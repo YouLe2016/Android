@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.wyl.android.navigation.HomeFragment"
+        android:name="com.com.wyl.android.navigation.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/navigation_home_fragment">
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.wyl.android.navigation.DetailFragment"
+        android:name="com.com.wyl.android.navigation.DetailFragment"
         android:label="@string/detail"
         tools:layout="@layout/navigation_detail_fragment">
         <action

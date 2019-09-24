@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.wyl.android.databinding.DataBindingViewModel" />
+            type="com.com.wyl.android.databinding.DataBindingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

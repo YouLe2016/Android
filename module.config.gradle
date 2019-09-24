@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion androidSdk.compileSdkVersion
+    defaultConfig {
+        minSdkVersion androidSdk.minSdkVersion
+        targetSdkVersion androidSdk.targetSdkVersion
+        versionCode androidSdk.versionCode
+        versionName androidSdk.versionName
+        testInstrumentationRunner androidSdk.testInstrumentationRunner
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file(KEY_PATH)
+            storePassword KEY_PASS
+            keyAlias = ALIAS_NAME
+            keyPassword ALIAS_PASS
+        }
+    }
+    dataBinding.enabled = true
+}
+
+

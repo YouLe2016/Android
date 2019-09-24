@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.wyl.android.viewmodel.MySaveStateViewModel" />
+            type="com.com.wyl.android.viewmodel.MySaveStateViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
