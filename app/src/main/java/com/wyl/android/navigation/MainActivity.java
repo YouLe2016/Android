@@ -11,7 +11,6 @@ import androidx.navigation.ui.NavigationViewKt;
 import com.google.android.material.navigation.NavigationView;
 import com.wyl.android.R;
 import com.wyl.android.lifecycle.BaseActivity;
-
 /**
  * 项目名称：android-learn
  * 创建人：江心才子

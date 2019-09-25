@@ -7,7 +7,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.com.wyl.dialog"
+        applicationId "com.wyl.dialog"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

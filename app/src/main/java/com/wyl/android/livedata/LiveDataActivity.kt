@@ -25,7 +25,6 @@ class LiveDataActivity : AppCompatActivity() {
         add.setOnClickListener { viewModel.add(1) }
 
         reduce.setOnClickListener {
-            //            viewModel.reduce(1)
             viewModel.add(-1)
         }
 

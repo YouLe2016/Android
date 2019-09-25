@@ -4,7 +4,6 @@
     <string name="android_viewModel">AndroidViewModel</string>
     <string name="save_state_vieModel">SaveStateViewModel</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="home">Home</string>
     <string name="detail">Detail</string>
 

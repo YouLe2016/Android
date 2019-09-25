@@ -1,5 +1,5 @@
 /**
- * created by 江心才子, 2019/9/19 0019
+ * created by 江心才子, 2019/9/25 0025
  * Copyright (c) 2019, 270628297@qq.com All Rights Reserved.
  * #                   *********                            #
  * #                  ************                          #
@@ -25,31 +25,34 @@
  * #          *****       ***        ***      *             #
  * #            **       ****        ****                   #
  */
-package com.wyl.android.livedata
+package com.wyl.android.navigation
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.SavedStateHandle
+import com.wyl.android.viewmodel.Number
 import kotlin.math.max
+
 
 /**
  * 项目名称：android-learn
  * 创建人：江心才子
- * 创建时间：2019-09-19 14:44
+ * 创建时间：2019-09-25 12:12
  * 内容描述：
  * 修改说明：
  */
-class LiveDataViewModel : ViewModel() {
-    val number = MutableLiveData(0)
 
-
-    // region ================ Function ========================================
-
-    fun add(n: Int) {
-        number.value?.let {
-            number.value = max(it + n, 0)
-        }
+class NavigationViewModel(
+    application: Application,
+    handle: SavedStateHandle
+) : AndroidViewModel(application) {
+    val number by lazy {
+        handle.getLiveData(Number, 0)
     }
 
-    // endregion
-
+    fun add(i: Int) {
+        number.value?.let {
+            number.value = max(0, it + i)
+        }
+    }
 }

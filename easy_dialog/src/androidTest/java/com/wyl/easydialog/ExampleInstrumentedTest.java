@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.com.wyl.easydialog.test", appContext.getPackageName());
+        assertEquals("com.wyl.easydialog.test", appContext.getPackageName());
     }
 }
