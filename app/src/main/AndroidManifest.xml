@@ -12,32 +12,35 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".viewmodel.SaveStateViewModelActivity"
-            android:label="@string/save_state_vieModel"></activity>
-        <activity
-            android:name=".viewmodel.AndroidViewModelActivity"
-            android:label="@string/android_viewModel"></activity>
-        <activity
-            android:name=".screen.OrientationActivity"
-            android:label="Screen Orientation" />
-        <activity
-            android:name=".databinding.DataBindingActivity"
-            android:label="DataBinding"></activity>
-        <activity
-            android:name=".livedata.LiveDataActivity"
-            android:label="LiveData" />
-        <activity
-            android:name=".viewmodel.ViewModelActivity"
-            android:label="ViewModel"></activity>
-        <activity
-            android:name=".navigation.MainActivity"
-            android:label="Navigation">
+            android:name=".lifecycles.LifecycleActivity"
+            android:label="Lifecycle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".viewmodel.SaveStateViewModelActivity"
+            android:label="@string/save_state_vieModel" />
+        <activity
+            android:name=".viewmodel.AndroidViewModelActivity"
+            android:label="@string/android_viewModel" />
+        <activity
+            android:name=".screen.OrientationActivity"
+            android:label="Screen Orientation" />
+        <activity
+            android:name=".databinding.DataBindingActivity"
+            android:label="DataBinding" />
+        <activity
+            android:name=".livedata.LiveDataActivity"
+            android:label="LiveData" />
+        <activity
+            android:name=".viewmodel.ViewModelActivity"
+            android:label="ViewModel" />
+        <activity
+            android:name=".navigation.MainActivity"
+            android:label="Navigation"></activity>
     </application>
 
 </manifest>

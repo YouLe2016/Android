@@ -13,7 +13,9 @@
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@+id/detailFragment"
             app:enterAnim="@anim/slide_from_left"
-            app:exitAnim="@anim/slide_to_right">
+            app:exitAnim="@anim/slide_to_right"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
             <argument
                 android:name="name"
                 android:defaultValue="Tom" />

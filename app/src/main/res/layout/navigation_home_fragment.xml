@@ -40,13 +40,13 @@
 
         <SeekBar
             android:id="@+id/seekBar"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:max="10"
             android:progress="@={data.number}"
+            tools:progress="3"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -7,7 +7,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.wyl.com.wyl.multiple"
+        applicationId "com.wyl.multiple"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
