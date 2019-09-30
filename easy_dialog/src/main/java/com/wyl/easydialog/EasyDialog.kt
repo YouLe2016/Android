@@ -72,7 +72,7 @@ class EasyDialog : DialogFragment() {
     }
 
     private fun initWindowParams() {
-        val window = dialog.window ?: return
+        val window = dialog?.window ?: return
         val lp = window.attributes
         lp.dimAmount = dimAmount
         if (gravity != Gravity.CENTER) {

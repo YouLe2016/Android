@@ -12,14 +12,18 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".lifecycles.LifecycleActivity"
-            android:label="Lifecycle">
+            android:name=".room.Room1Activity"
+            android:label="Room Simple 1">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".lifecycles.LifecycleActivity"
+            android:label="Lifecycle"></activity>
         <activity
             android:name=".viewmodel.SaveStateViewModelActivity"
             android:label="@string/save_state_vieModel" />
@@ -40,7 +44,7 @@
             android:label="ViewModel" />
         <activity
             android:name=".navigation.MainActivity"
-            android:label="Navigation"></activity>
+            android:label="Navigation" />
     </application>
 
 </manifest>
