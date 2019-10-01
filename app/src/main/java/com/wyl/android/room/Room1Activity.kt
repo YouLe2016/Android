@@ -35,7 +35,12 @@ class Room1Activity : AppCompatActivity() {
         }
 
         btDelete.setOnClickListener {
-            wordDao.deleteWords(Word("Hello", "哈喽"))
+            wordDao.deleteWords(Word("Hello", "哈喽").apply { wid = 2 })
+            updateUi()
+        }
+
+        btUpdate.setOnClickListener {
+            wordDao.updateWords(Word("MyLove", "我的爱人").apply { wid = 1 })
             updateUi()
         }
 
