@@ -1,12 +1,15 @@
 package com.wyl.android.room
 
 import android.app.Application
+import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.AndroidViewModel
 
 class Room2ViewModel(application: Application) : AndroidViewModel(application) {
     private val roomRepository by lazy {
         RoomRepository(application.applicationContext)
     }
+
+    val dataSource = ObservableArrayList<Word>()
 
     fun getAllWords() = roomRepository.wordsList
 

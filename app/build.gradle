@@ -27,4 +27,6 @@ dependencies {
     implementation "androidx.room:room-rxjava2:$room_version"
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
+
+    implementation 'com.ditclear:bindinglistadapterx:1.0.0'
 }
