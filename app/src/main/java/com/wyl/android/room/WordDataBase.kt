@@ -27,7 +27,9 @@
  */
 package com.wyl.android.room
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 
 /**
@@ -41,4 +43,22 @@ import androidx.room.RoomDatabase
 @Database(entities = [Word::class], version = 1)
 abstract class WordDataBase : RoomDatabase() {
     abstract fun wordDao(): WordDao
+
+    companion object {
+        private lateinit var instance: WordDataBase
+
+        @Synchronized
+        fun getInstance(context: Context): WordDataBase {
+            return if (this::instance.isInitialized) {
+                instance
+            } else {
+                instance = Room.databaseBuilder(
+                    context,
+                    WordDataBase::class.java,
+                    "word_database"
+                ).build()
+                instance
+            }
+        }
+    }
 }

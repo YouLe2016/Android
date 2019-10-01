@@ -27,6 +27,7 @@
  */
 package com.wyl.android.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 /**
@@ -49,5 +50,5 @@ interface WordDao {
     fun updateWords(vararg word: Word)
 
     @Query("select * from word order by wid desc")
-    fun findAllWords(): List<Word>
+    fun findAllWords(): LiveData<List<Word>>
 }
