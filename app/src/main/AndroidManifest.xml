@@ -12,28 +12,27 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".room.Room2Activity"
-            android:label="Room Simple 2">
-
+            android:name=".navigation.Navigation2Activity"
+            android:label="@string/title_activity_navigation2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-<!--        <activity-->
-<!--            android:name=".room.Room1Activity"-->
-<!--            android:label="Room Simple 1">-->
-
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+            </intent-filter></activity>
+        <activity
+            android:name=".room.Room2Activity"
+            android:label="Room Simple 2">
+        </activity> <!-- <activity -->
+        <!-- android:name=".room.Room1Activity" -->
+        <!-- android:label="Room Simple 1"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".lifecycles.LifecycleActivity"
-            android:label="Lifecycle"></activity>
+            android:label="Lifecycle" />
         <activity
             android:name=".viewmodel.SaveStateViewModelActivity"
             android:label="@string/save_state_vieModel" />
