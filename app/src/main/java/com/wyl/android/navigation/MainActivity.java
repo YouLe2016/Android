@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationViewKt;
 import com.google.android.material.navigation.NavigationView;
 import com.wyl.android.R;
 import com.wyl.android.lifecycle.BaseActivity;
+
 /**
  * 项目名称：android-learn
  * 创建人：江心才子
@@ -29,6 +30,7 @@ public class MainActivity extends BaseActivity {
         NavigationUI.setupActionBarWithNavController(this, navController);
     }
 
+    // Up操作的事件处理
     @Override
     public boolean onSupportNavigateUp() {
 //        return super.onSupportNavigateUp();

@@ -35,5 +35,8 @@
             android:name="name"
             app:argType="string"
             android:defaultValue="Jack" />
+        <action
+            android:id="@+id/action_detailFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

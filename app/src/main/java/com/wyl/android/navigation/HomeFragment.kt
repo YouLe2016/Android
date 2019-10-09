@@ -40,7 +40,7 @@ class HomeFragment : BaseFragment() {
 
         viewModel = ViewModelProviders.of(
             activity!!,
-            SavedStateViewModelFactory(activity!!.application, this)
+            SavedStateViewModelFactory(requireActivity().application, this)
         ).get(NavigationViewModel::class.java)
 
         binding.lifecycleOwner = this
