@@ -12,18 +12,25 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".navigation.Navigation3Activity"
-            android:label="@string/title_activity_toolbar"
+            android:name=".navigation.navigationview.Navigation4Activity"
+            android:label="@string/title_activity_navigation4"
             android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".navigation.Navigation2Activity"
-            android:label="@string/title_activity_navigation2">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".navigation.Navigation3Activity"
+            android:label="@string/title_activity_toolbar"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".navigation.Navigation2Activity"
+            android:label="@string/title_activity_navigation2">
         </activity>
         <activity
             android:name=".room.Room2Activity"
@@ -53,8 +60,7 @@
             android:label="ViewModel" />
         <activity
             android:name=".navigation.MainActivity"
-            android:label="Navigation">
-        </activity>
+            android:label="Navigation"></activity>
     </application>
 
 </manifest>
