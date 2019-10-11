@@ -36,4 +36,14 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
 
     implementation 'com.ditclear:bindinglistadapterx:1.0.0'
+
+    def paging_version = "2.1.0"
+
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+    // alternatively - without Android dependencies for testing
+    testImplementation "androidx.paging:paging-common-ktx:$paging_version"
+    // optional - RxJava support
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+    // For Kotlin use paging-rxjava2-ktx
+
 }

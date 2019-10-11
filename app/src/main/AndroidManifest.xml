@@ -12,15 +12,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".paging.PagingActivity"
+            android:label="Paging的基本使用1"></activity>
+        <activity
             android:name=".navigation.navigationview.Navigation4Activity"
             android:label="@string/title_activity_navigation4"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".navigation.Navigation3Activity"
@@ -31,6 +29,7 @@
         <activity
             android:name=".navigation.Navigation2Activity"
             android:label="@string/title_activity_navigation2">
+
         </activity>
         <activity
             android:name=".room.Room2Activity"
@@ -48,7 +47,16 @@
             android:label="@string/android_viewModel" />
         <activity
             android:name=".screen.OrientationActivity"
-            android:label="Screen Orientation" />
+            android:label="Screen Orientation">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".databinding.DataBindingActivity"
             android:label="DataBinding" />
@@ -60,7 +68,7 @@
             android:label="ViewModel" />
         <activity
             android:name=".navigation.MainActivity"
-            android:label="Navigation"></activity>
+            android:label="Navigation" />
     </application>
 
 </manifest>
