@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.wyl.android.BR
 import com.wyl.android.R
 import com.wyl.android.databinding.ItemPagingBinding
+import io.ditclear.bindingadapterx.BindingViewHolder
 import kotlinx.android.synthetic.main.activity_paging.*
 
 class PagingActivity : AppCompatActivity() {
@@ -54,16 +55,18 @@ private val DIFFER_CALLBACK by lazy {
     }
 }
 
-class RecyclerViewAdapter : PagedListAdapter<Concert, BindingViewHolder>(DIFFER_CALLBACK) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder {
+class RecyclerViewAdapter :
+    PagedListAdapter<Concert, BindingViewHolder<ItemPagingBinding>>(DIFFER_CALLBACK) {
+    override fun onBindViewHolder(holder: BindingViewHolder<ItemPagingBinding>, position: Int) {
+        holder.binding.data = getItem(position)
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): BindingViewHolder<ItemPagingBinding> {
         val binding = ItemPagingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BindingViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
-        holder.binding.setVariable(BR.data, getItem(position))
-    }
-
 }
-
-class BindingViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
