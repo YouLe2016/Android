@@ -51,4 +51,7 @@ interface WordDao {
 
     @Query("select * from word order by wid desc")
     fun findAllWords(): LiveData<List<Word>>
+
+    @Query("select * from word where english like :pattern order by wid desc")
+    fun findAllWordsByWord(pattern: String): LiveData<List<Word>>
 }
