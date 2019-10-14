@@ -1,23 +1,29 @@
 package com.wyl.word
 
 import android.app.Application
-import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import java.util.regex.Pattern
+import androidx.lifecycle.MutableLiveData
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
-    private val roomRepository by lazy {
-        RoomRepository(application.applicationContext)
+    private val wordRepository by lazy {
+        WordRepository(application.applicationContext)
     }
 
-    fun findAllWords(pattern: String? = null): LiveData<List<Word>> =
-        roomRepository.findAllWords(pattern)
+    private val patternLiveData = MutableLiveData<String>()
 
-    fun addWords(vararg word: Word) = roomRepository.addWords(*word)
+    fun findAllWords(pattern: String? = null): LiveData<List<Word>> {
+        patternLiveData.value = pattern
+        return wordRepository.findAllWords(patternLiveData)
+    }
 
-    fun deleteWords(vararg word: Word) = roomRepository.deleteWords(*word)
+    fun addWords(vararg word: Word) = wordRepository.addWords(*word)
 
-    fun updateWords(vararg word: Word) = roomRepository.updateWords(*word)
+    fun deleteWords(vararg word: Word) = wordRepository.deleteWords(*word)
+
+    fun deleteAllWords() = wordRepository.deleteAllWords()
+
+    fun updateWords(vararg word: Word) = wordRepository.updateWords(*word)
+
 
 }

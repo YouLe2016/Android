@@ -1,10 +1,13 @@
 package com.wyl.word
 
 
+import android.app.AlertDialog
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
-import android.util.Log
+import android.preference.PreferenceManager
 import android.view.*
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -12,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wyl.word.extend.logD
 import com.wyl.word.extend.toast
 import kotlinx.android.synthetic.main.fragment_words.*
 import kotlinx.android.synthetic.main.item_words.view.*
@@ -26,6 +28,7 @@ class WordsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // 让Fragment中的Menu显示出来 默认为false不显示
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_words, container, false)
     }
@@ -78,9 +81,17 @@ class WordsFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.clearData) {
+            AlertDialog.Builder(requireContext())
+                .setMessage("确认删除")
+                .setPositiveButton("确认") { _, _ ->
+                    viewModel.deleteAllWords()
+                }.setNegativeButton("取消") { dialog, _ ->
+                    dialog.cancel()
+                }.show()
+        }
         return super.onOptionsItemSelected(item)
     }
-
 
 }
 
