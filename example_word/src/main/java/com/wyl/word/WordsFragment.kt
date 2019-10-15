@@ -2,19 +2,15 @@ package com.wyl.word
 
 
 import android.app.AlertDialog
-import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
-import android.preference.PreferenceManager
+import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.wyl.word.extend.toast
 import kotlinx.android.synthetic.main.fragment_words.*
 import kotlinx.android.synthetic.main.item_words.view.*
@@ -37,8 +33,12 @@ class WordsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         viewModel.findAllWords().observe(this@WordsFragment, Observer {
-            mAdapter.dataSource = it
-            mAdapter.notifyDataSetChanged()
+            //            mAdapter.dataSource = it
+//            mAdapter.notifyDataSetChanged()
+            // 方式一
+//            mAdapter.notifyItemInserted(0)
+            // 方式二
+            mAdapter.submitList(it)
         })
 
         recyclerView.apply {
@@ -50,6 +50,23 @@ class WordsFragment : Fragment() {
                     DividerItemDecoration.VERTICAL
                 )
             )
+            itemAnimator = object : DefaultItemAnimator() {
+                override fun onAnimationFinished(viewHolder: RecyclerView.ViewHolder) {
+                    if (viewHolder.adapterPosition != 0) return
+
+                    Log.d("tag", "tag-----------${viewHolder.adapterPosition}--")
+                    layoutManager?.let {
+                        val manager = it as LinearLayoutManager
+                        val range =
+                            manager.findFirstVisibleItemPosition()..manager.findLastVisibleItemPosition()
+                        for (pos in range) {
+                            val holder = findViewHolderForLayoutPosition(pos) as ViewHolder
+                            holder.itemView.tvNo.text = (pos + 1).toString()
+                        }
+                    }
+                    scrollToPosition(0)
+                }
+            }
         }
 
         floatingActionButton.setOnClickListener {
@@ -57,10 +74,20 @@ class WordsFragment : Fragment() {
         }
     }
 
+    /**
+     * 平滑滚动所使用的类
+     */
+    private val scroller by lazy {
+        object : LinearSmoothScroller(context) {
+            override fun getVerticalSnapPreference(): Int {
+                return SNAP_TO_START
+            }
+        }
+    }
+
     private val viewModel by lazy { ViewModelProviders.of(this).get(WordViewModel::class.java) }
 
-    private val mAdapter by lazy { WordsAdapter() }
-
+    private val mAdapter = WordsAdapter1()
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.words_menu, menu)
@@ -93,6 +120,50 @@ class WordsFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+}
+
+private val DIFF_CALLBACK by lazy {
+    object : DiffUtil.ItemCallback<Word>() {
+        override fun areItemsTheSame(oldItem: Word, newItem: Word): Boolean {
+            return oldItem.wid == newItem.wid
+        }
+
+        override fun areContentsTheSame(oldItem: Word, newItem: Word): Boolean {
+            return oldItem == newItem
+        }
+    }
+}
+
+class WordsAdapter1 : ListAdapter<Word, ViewHolder>(DIFF_CALLBACK) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_words, parent, false
+        )
+
+        val viewHolder = ViewHolder(view)
+
+        view.setOnClickListener {
+            it.context.toast(getItem(viewHolder.adapterPosition).word)
+        }
+        view.switch1.setOnCheckedChangeListener { _, isChecked ->
+            getItem(viewHolder.adapterPosition).hideMeaning = isChecked
+            view.tvChinese.visibility = if (isChecked) View.GONE else View.VISIBLE
+        }
+
+        return viewHolder
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.apply {
+            getItem(position).let {
+                tvNo.text = (position + 1).toString()
+                tvEnglish.text = it.word
+                tvChinese.text = it.chineseMeaning
+                switch1.isChecked = it.hideMeaning
+            }
+        }
+    }
 }
 
 class WordsAdapter : RecyclerView.Adapter<ViewHolder>() {

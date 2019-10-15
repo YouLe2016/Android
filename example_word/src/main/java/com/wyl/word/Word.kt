@@ -30,6 +30,7 @@ package com.wyl.word
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.ColumnInfo
+import androidx.room.Ignore
 
 
 /**
@@ -40,7 +41,7 @@ import androidx.room.ColumnInfo
  * 修改说明：
  */
 @Entity
-class Word(
+data class Word(
     @ColumnInfo(name = "english")
     var word: String,
     @ColumnInfo(name = "chinese_meaning")
