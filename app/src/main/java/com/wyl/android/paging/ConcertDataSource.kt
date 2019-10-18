@@ -27,7 +27,6 @@
  */
 package com.wyl.android.paging
 
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.paging.PositionalDataSource
 
@@ -39,7 +38,7 @@ import androidx.paging.PositionalDataSource
  * 修改说明：
  */
 class ConcertDataSource : PositionalDataSource<Concert>() {
-    private val dataSource = List(1000) { Concert(it) }
+    private val dataSource = List(1_000) { Concert(it) }
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Concert>) {
         callback.onResult(fetchItems(0, params.pageSize), 0, dataSource.size)
@@ -55,11 +54,11 @@ class ConcertDataSource : PositionalDataSource<Concert>() {
 }
 
 class ConcertFactory : DataSource.Factory<Int, Concert>() {
-    private val liveData = MutableLiveData<ConcertDataSource>()
+//    private val liveData = MutableLiveData<ConcertDataSource>()
 
     override fun create(): DataSource<Int, Concert> {
         val dataSource = ConcertDataSource()
-        liveData.postValue(dataSource)
+//        liveData.postValue(dataSource)
         return dataSource
     }
 }

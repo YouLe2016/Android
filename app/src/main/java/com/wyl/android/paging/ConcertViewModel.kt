@@ -28,7 +28,10 @@
 package com.wyl.android.paging
 
 import androidx.lifecycle.ViewModel
+import androidx.paging.Config
 import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import androidx.paging.toLiveData
 
 
 /**
@@ -41,7 +44,18 @@ import androidx.paging.LivePagedListBuilder
 class ConcertViewModel : ViewModel() {
     private val concertFactory by lazy { ConcertFactory() }
     private val dataSource by lazy { concertFactory.create() }
-    val dataList by lazy { LivePagedListBuilder(concertFactory, 20).build() }
+    val dataList by lazy {
+        //        LivePagedListBuilder(concertFactory, 50).build()
+
+        LivePagedListBuilder(
+            concertFactory, PagedList.Config.Builder()
+                .setPageSize(20)                         //配置分页加载的数量
+                .setEnablePlaceholders(false)            //配置是否启动PlaceHolders
+                .setInitialLoadSizeHint(50)              //初始化加载的数量
+                .build()
+        ).build()
+
+    }
 
     override fun onCleared() {
         dataSource.invalidate()
