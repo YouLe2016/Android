@@ -1,6 +1,7 @@
 package com.wyl.android.paging
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,7 @@ class PagingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_paging)
 
         viewModel.dataList.observe(this, Observer {
+            Log.d("Look", "it.size = ${it.size}")
             mAdapter.submitList(it)
         })
 

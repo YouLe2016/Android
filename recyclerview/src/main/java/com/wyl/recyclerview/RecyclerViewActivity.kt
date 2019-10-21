@@ -21,7 +21,12 @@ class RecyclerViewActivity : AppCompatActivity() {
 
     private val itemDecoration by lazy {
         object : RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+            override fun getItemOffsets(
+                outRect: Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
 //                super.getItemOffsets(outRect, view, parent, state)
                 if (parent.getChildAdapterPosition(view) != 0) {
                     outRect.top = 1
