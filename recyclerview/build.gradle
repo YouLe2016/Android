@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
-    buildToolsVersion "29.0.0"
 
     defaultConfig {
         applicationId "com.wyl.recyclerview"
@@ -35,4 +36,9 @@ dependencies {
 
     implementation 'com.ditclear:bindinglistadapter:1.0.1'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    implementation 'androidx.mediarouter:mediarouter:1.1.0'
+
 }

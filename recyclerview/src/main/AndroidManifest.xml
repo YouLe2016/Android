@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wyl.recyclerview">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -12,8 +13,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".NotifyItemActivity"
+            android:label="NotifyItem">
+
+        </activity>
+        <activity
             android:name=".ListAdapterActivity"
             android:label="ListAdapter">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
