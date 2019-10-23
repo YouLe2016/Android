@@ -46,15 +46,13 @@ class ConcertViewModel : ViewModel() {
     private val dataSource by lazy { concertFactory.create() }
     val dataList by lazy {
         //        LivePagedListBuilder(concertFactory, 50).build()
-
         LivePagedListBuilder(
-            concertFactory, PagedList.Config.Builder()
-                .setPageSize(20)                         //配置分页加载的数量
+            concertFactory,
+            PagedList.Config.Builder().setPageSize(20)   //配置分页加载的数量
                 .setEnablePlaceholders(false)            //配置是否启动PlaceHolders
                 .setInitialLoadSizeHint(40)              //初始化加载的数量
                 .build()
         ).build()
-
     }
 
     override fun onCleared() {

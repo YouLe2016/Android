@@ -38,7 +38,7 @@ import androidx.paging.PositionalDataSource
  * 修改说明：
  */
 class ConcertDataSource : PositionalDataSource<Concert>() {
-    private val dataSource = List(1_000) { Concert(it) }
+    private val dataSource = List(10_000) { Concert(it) }
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Concert>) {
         callback.onResult(fetchItems(0, params.pageSize), 0, dataSource.size)

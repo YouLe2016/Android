@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_paging.*
 class PagingActivity : AppCompatActivity() {
     private val viewModel by lazy { ViewModelProviders.of(this).get(ConcertViewModel::class.java) }
 
-//    private val dataSource = List(1_000_000) { Concert(it) }
+    private val dataSource = List(10_000) { Concert(it) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +36,7 @@ class PagingActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@PagingActivity)
             adapter = mAdapter
             addItemDecoration(
-                DividerItemDecoration(
-                    this@PagingActivity,
-                    DividerItemDecoration.VERTICAL
-                )
+                DividerItemDecoration(this@PagingActivity, DividerItemDecoration.VERTICAL)
             )
         }
     }
@@ -49,16 +46,6 @@ class PagingActivity : AppCompatActivity() {
 //        dataSource = this@PagingActivity.dataSource
 //    }
 
-}
-
-private val DIFFER_CALLBACK by lazy {
-    object : DiffUtil.ItemCallback<Concert>() {
-        override fun areItemsTheSame(oldItem: Concert, newItem: Concert): Boolean =
-            oldItem.id == newItem.id
-
-        override fun areContentsTheSame(oldItem: Concert, newItem: Concert): Boolean =
-            oldItem == newItem
-    }
 }
 
 class RecyclerViewAdapter1 : RecyclerView.Adapter<BindingViewHolder<ItemPagingBinding>>() {
@@ -73,7 +60,6 @@ class RecyclerViewAdapter1 : RecyclerView.Adapter<BindingViewHolder<ItemPagingBi
         return BindingViewHolder(binding)
     }
 
-
     override fun getItemCount(): Int = dataSource.size
 
     override fun onBindViewHolder(holder: BindingViewHolder<ItemPagingBinding>, position: Int) {
@@ -82,8 +68,14 @@ class RecyclerViewAdapter1 : RecyclerView.Adapter<BindingViewHolder<ItemPagingBi
 
 }
 
-class RecyclerViewAdapter :
-    PagedListAdapter<Concert, BindingViewHolder<ItemPagingBinding>>(DIFFER_CALLBACK) {
+class RecyclerViewAdapter : PagedListAdapter<Concert, BindingViewHolder<ItemPagingBinding>>(object :
+    DiffUtil.ItemCallback<Concert>() {
+    override fun areItemsTheSame(oldItem: Concert, newItem: Concert): Boolean =
+        oldItem.id == newItem.id
+
+    override fun areContentsTheSame(oldItem: Concert, newItem: Concert): Boolean =
+        oldItem == newItem
+}) {
     override fun onBindViewHolder(holder: BindingViewHolder<ItemPagingBinding>, position: Int) {
         holder.binding.data = getItem(position)
     }
