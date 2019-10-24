@@ -26,15 +26,12 @@ android {
     productFlavors {
         phone {
             dimension = 'device'
-            applicationId = 'com.wyl.phone'
         }
         study {
             dimension = 'device'
-            applicationId = 'com.wyl.study'
         }
         wear {
             dimension = 'device'
-            applicationId = 'com.wyl.wear'
         }
     }
 
