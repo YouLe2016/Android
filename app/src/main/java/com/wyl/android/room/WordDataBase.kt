@@ -49,9 +49,7 @@ abstract class WordDataBase : RoomDatabase() {
 
         @Synchronized
         fun getInstance(context: Context): WordDataBase {
-            return if (this::instance.isInitialized) {
-                instance
-            } else {
+            if (!this::instance.isInitialized) {
                 instance = Room.databaseBuilder(
                     context,
                     WordDataBase::class.java,
@@ -61,8 +59,8 @@ abstract class WordDataBase : RoomDatabase() {
                     .addMigrations(Migration2())
                     .addMigrations(Migration3())
                     .build()
-                instance
             }
+            return instance
         }
     }
 

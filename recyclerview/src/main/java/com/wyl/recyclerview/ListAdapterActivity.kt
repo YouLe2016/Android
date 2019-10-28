@@ -89,6 +89,7 @@ class ListAdapterActivity : AppCompatActivity() {
                 true
             }
             R.id.refreshItem -> {
+
                 ArrayList(data).apply {
                     this[9] = Data(imgUrl2, "name 9", "desc 9")
                     data = this

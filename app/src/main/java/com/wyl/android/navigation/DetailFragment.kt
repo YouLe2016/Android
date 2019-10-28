@@ -50,6 +50,9 @@ class DetailFragment : Fragment() {
 //        navigator()
         button.setOnClickListener {
             Navigation.findNavController(it).navigateUp()
+//            Navigation.findNavController(it).navigate(R.id.action_detailFragment_to_navigation2Activity)
+//            Navigation.findNavController(it)
+//                .navigate(R.id.action_detailFragment_to_mobile_navigation)
         }
     }
 

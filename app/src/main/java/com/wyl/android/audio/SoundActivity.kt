@@ -16,13 +16,13 @@ class SoundActivity : AppCompatActivity() {
         lifecycle.addObserver(SoundPoolUtil)
 
         SoundPoolUtil.loadSound(this, R.raw.ddsy, R.raw.djssy) {
-            //            SoundPoolUtil.playSound(this, R.raw.djssy)
+            // SoundPoolUtil.playSound(this, R.raw.djssy)
+
         }
 
         btSoundPool.setOnClickListener {
             SoundPoolUtil.playSound(it.context, R.raw.ddsy)
         }
-
 
         val player = MediaPlayer.create(this, R.raw.ddsy)
 

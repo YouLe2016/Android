@@ -14,11 +14,6 @@
         <activity
             android:name=".audio.SoundActivity"
             android:label="Sound">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".paging.PagingActivity"
@@ -33,7 +28,15 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".navigation.Navigation2Activity"
-            android:label="@string/title_activity_navigation2"></activity>
+            android:label="@string/title_activity_navigation2">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".room.Room2Activity"
             android:label="Room Simple 2"></activity>
@@ -60,7 +63,8 @@
             android:label="ViewModel" />
         <activity
             android:name=".navigation.MainActivity"
-            android:label="Navigation" />
+            android:label="Navigation" >
+        </activity>
     </application>
 
 </manifest>

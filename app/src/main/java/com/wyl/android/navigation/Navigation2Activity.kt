@@ -1,7 +1,9 @@
 package com.wyl.android.navigation
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -25,5 +27,22 @@ class Navigation2Activity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         nav_view.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            nav_view.visibility = when (destination.id) {
+                R.id.navigation_home -> View.VISIBLE
+                R.id.navigation_notifications -> View.VISIBLE
+                R.id.navigation_dashboard -> View.VISIBLE
+                else -> View.GONE
+            }
+        }
     }
+
+    // Up操作的事件处理
+    override fun onSupportNavigateUp(): Boolean {
+        //        return super.onSupportNavigateUp();
+        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        return navController.navigateUp()
+    }
+
 }
