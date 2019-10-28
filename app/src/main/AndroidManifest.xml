@@ -11,35 +11,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".audio.SoundActivity"
-            android:label="Sound">
-        </activity>
-        <activity
-            android:name=".paging.PagingActivity"
-            android:label="Paging的基本使用1"></activity>
-        <activity
-            android:name=".navigation.navigationview.Navigation4Activity"
-            android:label="@string/title_activity_navigation4"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".navigation.Navigation3Activity"
-            android:label="@string/title_activity_toolbar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".navigation.Navigation2Activity"
-            android:label="@string/title_activity_navigation2">
-
+        <activity android:name=".constraintlayout.ConstraintLayoutActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+        </activity>
+        <activity
+            android:name=".audio.SoundActivity"
+            android:label="Sound"></activity>
+        <activity
+            android:name=".paging.PagingActivity"
+            android:label="Paging的基本使用1" />
+        <activity
+            android:name=".navigation.navigationview.Navigation4Activity"
+            android:label="@string/title_activity_navigation4"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".navigation.Navigation3Activity"
+            android:label="@string/title_activity_toolbar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".navigation.Navigation2Activity"
+            android:label="@string/title_activity_navigation2">
         </activity>
         <activity
             android:name=".room.Room2Activity"
-            android:label="Room Simple 2"></activity>
+            android:label="Room Simple 2" />
         <activity
             android:name=".lifecycles.LifecycleActivity"
             android:label="Lifecycle" />
@@ -51,7 +50,7 @@
             android:label="@string/android_viewModel" />
         <activity
             android:name=".screen.OrientationActivity"
-            android:label="Screen Orientation"></activity>
+            android:label="Screen Orientation" />
         <activity
             android:name=".databinding.DataBindingActivity"
             android:label="DataBinding" />
@@ -63,8 +62,7 @@
             android:label="ViewModel" />
         <activity
             android:name=".navigation.MainActivity"
-            android:label="Navigation" >
-        </activity>
+            android:label="Navigation"></activity>
     </application>
 
 </manifest>
