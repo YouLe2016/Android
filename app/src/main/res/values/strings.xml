@@ -1,4 +1,8 @@
 <resources>
+    <string name="first_fragment">旋转</string>
+    <string name="second_fragment">缩放</string>
+    <string name="three_fragment">移动</string>
+
     <string name="app_name">android-learn</string>
     <string name="welcome">Welcome</string>
     <string name="android_viewModel">AndroidViewModel</string>

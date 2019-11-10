@@ -12,5 +12,4 @@ class MyAndroidViewModel(application: Application) : AndroidViewModel(applicatio
         Toast.makeText(context, "from AndroidViewModel", Toast.LENGTH_LONG).show()
     }
 
-
 }

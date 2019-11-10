@@ -7,37 +7,37 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.wyl.android.navigation.navigationview.ui.home.HomeFragment"
+        android:name="com.wyl.android.navigationview.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.wyl.android.navigation.navigationview.ui.gallery.GalleryFragment"
+        android:name="com.wyl.android.navigationview.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.wyl.android.navigation.navigationview.ui.slideshow.SlideshowFragment"
+        android:name="com.wyl.android.navigationview.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.wyl.android.navigation.navigationview.ui.tools.ToolsFragment"
+        android:name="com.wyl.android.navigationview.ui.tools.ToolsFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.wyl.android.navigation.navigationview.ui.share.ShareFragment"
+        android:name="com.wyl.android.navigationview.ui.share.ShareFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.wyl.android.navigation.navigationview.ui.send.SendFragment"
+        android:name="com.wyl.android.navigationview.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
 </navigation>

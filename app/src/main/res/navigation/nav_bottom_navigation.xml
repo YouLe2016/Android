@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_bottom_navigation_view"
+    app:startDestination="@id/first_fragment">
+
+    <fragment
+        android:id="@+id/first_fragment"
+        android:name="com.wyl.android.bottomnavigation.FirstFragment"
+        android:label="@string/first_fragment"
+        tools:layout="@layout/first_fragment" />
+    <fragment
+        android:id="@+id/second_fragment"
+        android:name="com.wyl.android.bottomnavigation.SecondFragment"
+        android:label="@string/second_fragment"
+        tools:layout="@layout/second_fragment" />
+    <fragment
+        android:id="@+id/three_fragment"
+        android:name="com.wyl.android.bottomnavigation.ThreeFragment"
+        android:label="@string/three_fragment"
+        tools:layout="@layout/three_fragment" />
+</navigation>
