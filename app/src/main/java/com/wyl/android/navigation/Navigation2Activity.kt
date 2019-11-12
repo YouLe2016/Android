@@ -28,7 +28,7 @@ class Navigation2Activity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         nav_view.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             nav_view.visibility = when (destination.id) {
                 R.id.navigation_home -> View.VISIBLE
                 R.id.navigation_notifications -> View.VISIBLE

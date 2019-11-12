@@ -31,7 +31,6 @@ class PagingActivity : AppCompatActivity() {
             mAdapter.submitList(it)
         })
 
-
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@PagingActivity)
             adapter = mAdapter

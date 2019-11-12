@@ -11,16 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".bottomnavigation.BottomNavigationViewActivity"
-            android:label="@string/title_activity_navigation4">
-
+        <activity android:name=".paging2.Paging2Activity"
+            android:label="Paging的基本使用2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".bottomnavigation.BottomNavigationViewActivity"
+            android:label="@string/title_activity_navigation4">
         </activity>
         <activity android:name=".constraintlayout.ConstraintLayoutActivity">
+
         </activity>
         <activity
             android:name=".audio.SoundActivity"
@@ -31,7 +36,7 @@
             android:name=".paging.PagingActivity"
             android:label="Paging的基本使用1" />
         <activity
-            android:name="com.wyl.android.navigationview.Navigation4Activity"
+            android:name=".navigationview.Navigation4Activity"
             android:label="@string/title_activity_navigation4"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -40,9 +45,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".navigation.Navigation2Activity"
-            android:label="@string/title_activity_navigation2">
-
-        </activity>
+            android:label="@string/title_activity_navigation2"></activity>
         <activity
             android:name=".room.Room2Activity"
             android:label="Room Simple 2" />

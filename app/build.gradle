@@ -20,12 +20,13 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
     androidTestImplementation androidxTests
     testImplementation tests
 
+    implementation 'com.ditclear:bindinglistadapterx:1.0.0'
 
-    def room_version = "2.2.0-rc01"
+    def room_version = "2.2.1"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     // For Kotlin use kapt instead of annotationProcessor
@@ -36,10 +37,7 @@ dependencies {
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
 
-    implementation 'com.ditclear:bindinglistadapterx:1.0.0'
-
     def paging_version = "2.1.0"
-
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
     // alternatively - without Android dependencies for testing
     testImplementation "androidx.paging:paging-common-ktx:$paging_version"

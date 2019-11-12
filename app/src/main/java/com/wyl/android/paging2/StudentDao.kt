@@ -1,5 +1,5 @@
 /**
- * created by 江心才子, 2019/9/30 0030
+ * created by 江心才子, 2019/11/12 0012
  * Copyright (c) 2019, 270628297@qq.com All Rights Reserved.
  * #                   *********                            #
  * #                  ************                          #
@@ -25,33 +25,31 @@
  * #          *****       ***        ***      *             #
  * #            **       ****        ****                   #
  */
-package com.wyl.android.room
+package com.wyl.android.paging2
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.paging.DataSource
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 
 /**
  * 项目名称：android-learn
  * 创建人：江心才子
- * 创建时间：2019-09-30 12:11
+ * 创建时间：2019-11-12 11:44
  * 内容描述：
  * 修改说明：
  */
-
 @Dao
-interface WordDao {
+interface StudentDao {
     @Insert
-    fun addWords(vararg word: Word)
+    fun insertStudent(vararg student: Student)
 
-    @Delete
-    fun deleteWords(vararg word: Word)
+    @Query("delete from Student")
+    fun deleteAllStudent()
 
-    @Query("delete from Word")
-    fun deleteAllWords()
+    @Query("select * from Student order by student_id")
 
-    @Update
-    fun updateWords(vararg word: Word)
+//    fun findAllStudent(): LiveData<List<Student>>
+    fun findAllStudent(): DataSource.Factory<Int, Student>
 
-    @Query("select * from word order by wid desc")
-    fun findAllWords(): LiveData<List<Word>>
 }

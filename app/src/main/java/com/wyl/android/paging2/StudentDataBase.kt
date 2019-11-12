@@ -1,5 +1,5 @@
 /**
- * created by 江心才子, 2019/9/30 0030
+ * created by 江心才子, 2019/11/12 0012
  * Copyright (c) 2019, 270628297@qq.com All Rights Reserved.
  * #                   *********                            #
  * #                  ************                          #
@@ -25,33 +25,42 @@
  * #          *****       ***        ***      *             #
  * #            **       ****        ****                   #
  */
-package com.wyl.android.room
+package com.wyl.android.paging2
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import android.content.Context
+import android.content.res.Resources
+import androidx.room.Dao
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.wyl.android.R
 
 /**
  * 项目名称：android-learn
  * 创建人：江心才子
- * 创建时间：2019-09-30 12:11
+ * 创建时间：2019-11-12 11:54
  * 内容描述：
  * 修改说明：
  */
+@Database(entities = [Student::class], version = 1)
+abstract class StudentDataBase : RoomDatabase() {
 
-@Dao
-interface WordDao {
-    @Insert
-    fun addWords(vararg word: Word)
+    abstract fun getStudentDao(): StudentDao
 
-    @Delete
-    fun deleteWords(vararg word: Word)
+    companion object {
+        private const val TableName = "student_table"
 
-    @Query("delete from Word")
-    fun deleteAllWords()
+        private lateinit var instance: StudentDataBase
 
-    @Update
-    fun updateWords(vararg word: Word)
-
-    @Query("select * from word order by wid desc")
-    fun findAllWords(): LiveData<List<Word>>
+        fun getInstance(context: Context): StudentDataBase {
+            if (!this::instance.isInitialized) {
+                instance = Room.databaseBuilder(
+                    context,
+                    StudentDataBase::class.java,
+                    TableName
+                ).build()
+            }
+            return instance
+        }
+    }
 }

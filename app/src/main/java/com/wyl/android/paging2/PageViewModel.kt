@@ -1,5 +1,5 @@
 /**
- * created by 江心才子, 2019/9/30 0030
+ * created by 江心才子, 2019/11/12 0012
  * Copyright (c) 2019, 270628297@qq.com All Rights Reserved.
  * #                   *********                            #
  * #                  ************                          #
@@ -25,33 +25,44 @@
  * #          *****       ***        ***      *             #
  * #            **       ****        ****                   #
  */
-package com.wyl.android.room
+package com.wyl.android.paging2
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.paging.LivePagedListBuilder
+import kotlin.concurrent.thread
 
 /**
  * 项目名称：android-learn
  * 创建人：江心才子
- * 创建时间：2019-09-30 12:11
+ * 创建时间：2019-11-12 12:28
  * 内容描述：
  * 修改说明：
  */
+class PageViewModel(app: Application) : AndroidViewModel(app) {
+    private val studentDao by lazy {
+        StudentDataBase.getInstance(app).getStudentDao()
+    }
 
-@Dao
-interface WordDao {
-    @Insert
-    fun addWords(vararg word: Word)
+    //    LiveData<PagedList<Student>>()
+    var dataSource = LivePagedListBuilder<Int, Student>(
+        studentDao.findAllStudent(),
+        20
+    ).build()
 
-    @Delete
-    fun deleteWords(vararg word: Word)
+    fun insertData() {
+        thread {
+            studentDao.insertStudent(
+                * Array(50) { Student(it + 1) }
+            )
+        }
+    }
 
-    @Query("delete from Word")
-    fun deleteAllWords()
+    fun deleteAll() {
+        thread { studentDao.deleteAllStudent() }
+    }
 
-    @Update
-    fun updateWords(vararg word: Word)
-
-    @Query("select * from word order by wid desc")
-    fun findAllWords(): LiveData<List<Word>>
+    override fun onCleared() {
+        StudentDataBase.getInstance(getApplication()).close()
+    }
 }

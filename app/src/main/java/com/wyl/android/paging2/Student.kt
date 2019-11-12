@@ -1,5 +1,5 @@
 /**
- * created by 江心才子, 2019/9/30 0030
+ * created by 江心才子, 2019/11/12 0012
  * Copyright (c) 2019, 270628297@qq.com All Rights Reserved.
  * #                   *********                            #
  * #                  ************                          #
@@ -25,33 +25,25 @@
  * #          *****       ***        ***      *             #
  * #            **       ****        ****                   #
  */
-package com.wyl.android.room
+package com.wyl.android.paging2
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 /**
  * 项目名称：android-learn
  * 创建人：江心才子
- * 创建时间：2019-09-30 12:11
+ * 创建时间：2019-11-12 11:39
  * 内容描述：
  * 修改说明：
  */
-
-@Dao
-interface WordDao {
-    @Insert
-    fun addWords(vararg word: Word)
-
-    @Delete
-    fun deleteWords(vararg word: Word)
-
-    @Query("delete from Word")
-    fun deleteAllWords()
-
-    @Update
-    fun updateWords(vararg word: Word)
-
-    @Query("select * from word order by wid desc")
-    fun findAllWords(): LiveData<List<Word>>
+@Entity
+data class Student(
+    @ColumnInfo(name = "student_number")
+    var number: Int = 0
+) {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "student_id")
+    var id = 0
 }
