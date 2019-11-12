@@ -38,11 +38,4 @@ class Navigation2Activity : AppCompatActivity() {
         }
     }
 
-    // Up操作的事件处理
-    override fun onSupportNavigateUp(): Boolean {
-        //        return super.onSupportNavigateUp();
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        return navController.navigateUp()
-    }
-
 }

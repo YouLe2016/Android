@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".bottomnavigation.BottomNavigationViewActivity">
+        <activity android:name=".bottomnavigation.BottomNavigationViewActivity"
+            android:label="@string/title_activity_navigation4">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +40,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".navigation.Navigation2Activity"
-            android:label="@string/title_activity_navigation2"></activity>
+            android:label="@string/title_activity_navigation2">
+
+        </activity>
         <activity
             android:name=".room.Room2Activity"
             android:label="Room Simple 2" />

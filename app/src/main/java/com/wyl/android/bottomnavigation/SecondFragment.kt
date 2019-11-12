@@ -1,5 +1,7 @@
 package com.wyl.android.bottomnavigation
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.wyl.android.R
+import kotlinx.android.synthetic.main.second_fragment.*
 
 /**
  * 缩放
@@ -26,6 +29,31 @@ class SecondFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(SecondViewModel::class.java)
+
+        imageView.apply {
+            scaleX = viewModel.imageScale
+            scaleY = viewModel.imageScale
+        }
+
+        val animatorSet = AnimatorSet().apply {
+            playTogether(
+                ObjectAnimator.ofFloat(imageView, "scaleX", viewModel.imageScale),
+                ObjectAnimator.ofFloat(imageView, "scaleY", viewModel.imageScale)
+            )
+        }
+
+        imageView.setOnClickListener {
+            if (!animatorSet.isRunning) {
+                animatorSet.childAnimations.forEach {
+                    (it as ObjectAnimator).setFloatValues(
+                        viewModel.imageScale,
+                        viewModel.imageScaleEnd()
+                    )
+                }
+                animatorSet.start()
+                viewModel.toggleScale()
+            }
+        }
     }
 
 }
