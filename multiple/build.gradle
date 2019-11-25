@@ -5,7 +5,6 @@ android {
     compileSdkVersion 28
     buildToolsVersion "28.0.0"
 
-
     defaultConfig {
         applicationId "com.wyl.multiple"
         minSdkVersion 21
@@ -14,12 +13,22 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [sdfaf: 'fdafdfdsa']
+        resConfigs 'fdsafdafdsafsa'
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [app_url: 'www.badu.com']
+            buildConfigField "String", "API_SERVER_URL", '"http://test.example.com/api"'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [app_url: 'www.badu.com']
+            buildConfigField "String", "API_SERVER_URL", '"http://test.example.com/api"'
         }
     }
     flavorDimensions 'device'

@@ -104,6 +104,7 @@ class ListAdapterActivity : AppCompatActivity() {
 
 class DataAdapter : ListAdapter<Data, ViewHolder>(object : DiffUtil.ItemCallback<Data>() {
     override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
+
         return oldItem.name == newItem.name
     }
 

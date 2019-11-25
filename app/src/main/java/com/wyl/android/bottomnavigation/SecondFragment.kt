@@ -2,13 +2,12 @@ package com.wyl.android.bottomnavigation
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.wyl.android.R
 import kotlinx.android.synthetic.main.second_fragment.*
 

@@ -11,8 +11,9 @@ import androidx.lifecycle.ViewModel
  * 修改说明：
  */
 class DataBindingViewModel : ViewModel() {
-    var number = MutableLiveData(0)
-        private set
+    val phone = MutableLiveData("")
+
+    val number = MutableLiveData(0)
 
     fun add(n: Int) {
         number.value?.let {

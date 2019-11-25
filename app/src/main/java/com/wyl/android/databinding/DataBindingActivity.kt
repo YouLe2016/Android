@@ -1,10 +1,12 @@
 package com.wyl.android.databinding
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import com.wyl.android.R
+import kotlinx.android.synthetic.main.data_binding_activity.*
 
 /*
 2019-9-21 10:51:04
@@ -20,11 +22,18 @@ class DataBindingActivity : AppCompatActivity() {
             this,
             R.layout.data_binding_activity
         )
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.data = viewModel
         binding.lifecycleOwner = this
+
+        textView.setOnClickListener {
+            Snackbar.make(it, viewModel.phone.value.toString(), Snackbar.LENGTH_SHORT).show()
+        }
+
+
     }
 }

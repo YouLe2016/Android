@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/viewPager2Fragment">
+
+    <fragment
+        android:id="@+id/actionBarFragment"
+        android:name="com.wyl.actionbar.ActionBarFragment"
+        android:label="ActionBar" />
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.wyl.viewpager.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" />
+    <fragment
+        android:id="@+id/viewPager2Fragment"
+        android:name="com.wyl.viewpager.ViewPager2Fragment"
+        android:label="ViewPager2Fragment" />
+</navigation>
