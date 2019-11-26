@@ -1,1 +1,1 @@
-include ':app', ':recyclerview', ':dialog', ':easy_dialog', ':multiple', ':example_word'
+include ':app', ':recyclerview', ':dialog', ':easy_dialog', ':multiple', ':example_word', ':delicious'
