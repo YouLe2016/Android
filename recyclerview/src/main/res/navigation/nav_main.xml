@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/viewPager2Fragment">
+    app:startDestination="@id/tabLayoutFragment">
 
     <fragment
         android:id="@+id/actionBarFragment"
@@ -18,4 +18,9 @@
         android:id="@+id/viewPager2Fragment"
         android:name="com.wyl.viewpager.ViewPager2Fragment"
         android:label="ViewPager2Fragment" />
+    <fragment
+        android:id="@+id/tabLayoutFragment"
+        android:name="com.wyl.tableayout.TabLayoutFragment"
+        android:label="fragment_tab_layout"
+        tools:layout="@layout/fragment_tab_layout" />
 </navigation>
